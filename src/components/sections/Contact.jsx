@@ -2,14 +2,13 @@ import React, { useState } from "react";
 import { profile } from "../../data/profile";
 import { socialLinks } from "../../data/socialLinks";
 import SectionHeading from "../ui/SectionHeading";
-import TerminalCard from "../ui/TerminalCard";
+import ContactForm from "../ui/ContactForm";
 import {
   Mail,
   Phone,
   ArrowUpRight,
   Copy,
-  Check,
-  MessageSquare
+  Check
 } from "lucide-react";
 import { GithubIcon, LinkedinIcon, XIcon } from "../ui/Icons";
 
@@ -46,7 +45,7 @@ export default function Contact() {
       />
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        {/* Left: Contact Channels */}
+        {/* Left: Contact Channels & Quick Info */}
         <div className="lg:col-span-6 space-y-4">
           {/* Email Card */}
           <a
@@ -101,8 +100,8 @@ export default function Contact() {
           </a>
 
           {/* Social Profiles Grid */}
-          <div className="pt-2">
-            <div className="text-xs font-mono uppercase tracking-wider text-muted mb-3">
+          <div className="pt-1">
+            <div className="text-xs font-mono uppercase tracking-wider text-muted mb-2.5">
               Professional Profiles
             </div>
             <div className="grid grid-cols-3 gap-3">
@@ -122,54 +121,46 @@ export default function Contact() {
               ))}
             </div>
           </div>
-        </div>
 
-        {/* Right: Interactive Terminal Info */}
-        <div className="lg:col-span-6">
-          <TerminalCard title="bash — contact" headerRight="status: active">
-            <div className="text-accent font-semibold flex items-center gap-2">
-              <span>$</span>
-              <span>contact --status</span>
+          {/* Quick Clone & Status Card */}
+          <div className="p-4 rounded-xl bg-card border border-border space-y-3">
+            <div className="flex items-center justify-between text-[11px] font-mono text-muted">
+              <span>Quick Clone Repositories:</span>
+              <button
+                onClick={handleCopy}
+                className="flex items-center gap-1 text-accent hover:text-accent-light transition-colors cursor-pointer"
+                title="Copy command"
+              >
+                {copied ? (
+                  <>
+                    <Check size={12} />
+                    <span>Copied!</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy size={12} />
+                    <span>Copy</span>
+                  </>
+                )}
+              </button>
             </div>
 
-            <p className="text-primary text-xs leading-relaxed">
-              Always open to discussing software engineering roles, internship opportunities, AI agent research, or collaboration on high-impact projects.
-            </p>
-
-            <div className="pt-3 border-t border-border/50">
-              <div className="text-muted text-[11px] mb-1.5 flex items-center justify-between">
-                <span>Quick Clone Profile Repositories:</span>
-                <button
-                  onClick={handleCopy}
-                  className="flex items-center gap-1 text-accent hover:text-accent-light transition-colors text-[11px]"
-                  title="Copy command"
-                >
-                  {copied ? (
-                    <>
-                      <Check size={12} />
-                      <span>Copied!</span>
-                    </>
-                  ) : (
-                    <>
-                      <Copy size={12} />
-                      <span>Copy</span>
-                    </>
-                  )}
-                </button>
-              </div>
-
-              <div className="p-2.5 rounded-lg bg-background/90 border border-border font-mono text-xs text-accent-cyan select-all">
-                {cloneCommand}
-              </div>
+            <div className="p-2.5 rounded-lg bg-surface border border-border font-mono text-xs text-accent-cyan select-all break-all">
+              {cloneCommand}
             </div>
 
-            <div className="pt-3 border-t border-border/50 flex items-center gap-2 text-xs">
+            <div className="pt-2 border-t border-border/50 flex items-center gap-2 text-xs">
               <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
-              <span className="text-primary font-medium">
+              <span className="text-secondary font-medium">
                 Open to Internship &amp; Developer Roles
               </span>
             </div>
-          </TerminalCard>
+          </div>
+        </div>
+
+        {/* Right: Get In Touch Contact Form */}
+        <div className="lg:col-span-6">
+          <ContactForm />
         </div>
       </div>
     </section>

@@ -14,7 +14,7 @@ export const profile = {
   status: "Building & Learning",
   focusArea: "Full Stack + AI",
   currentFocus: "AI Agents",
-  email: "mailto:musharafmahad17@gmail.com",
+  email: "musharafmahad17@gmail.com",
   phone: "+251 956117660",
   githubUsername: "Musharraf-Mahad",
   github: "https://github.com/Musharraf-Mahad",
