@@ -1,7 +1,7 @@
 export const profile = {
   name: "Musharraf Mahad",
   title: "Full Stack AI Engineer",
-  badge: "SOFTWARE ENGINEERING STUDENT",
+  badge: "SOFTWARE ENGINEER",
   tagline: "Building intelligent applications with code and AI.",
   description:
     "I'm Musharraf Mahad, a Software Engineering student focused on full-stack development, AI agents, and building practical AI-powered applications.",
@@ -20,5 +20,4 @@ export const profile = {
   github: "https://github.com/Musharraf-Mahad",
   linkedin: "https://www.linkedin.com/in/musharraf-mahad-0424ba218/",
   x: "https://x.com/MahadMusha57001",
-  resumeUrl: "/resume.pdf"
 };

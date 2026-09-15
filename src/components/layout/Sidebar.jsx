@@ -88,15 +88,6 @@ export default function Sidebar({ activeSection, onNavigate }) {
 
       {/* Resume & Social Links Footer */}
       <div className="p-4 border-t border-border space-y-4">
-        {/* Download Resume Button */}
-        <a
-          href={profile.resumeUrl}
-          download="Musharraf_Mahad_Resume.pdf"
-          className="w-full flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-lg text-xs font-semibold bg-accent hover:bg-accent-light text-background transition-all duration-200 shadow-glow-sm"
-        >
-          <Download size={14} />
-          <span>Download Resume</span>
-        </a>
 
         {/* Social Icons */}
         <div className="flex items-center justify-center gap-2 pt-1">
