@@ -6,7 +6,6 @@ import Hero from "./components/sections/Hero";
 import About from "./components/sections/About";
 import Skills from "./components/sections/Skills";
 import Projects from "./components/sections/Projects";
-import Education from "./components/sections/Education";
 import Learning from "./components/sections/Learning";
 import Contact from "./components/sections/Contact";
 
@@ -15,7 +14,6 @@ const sectionIds = [
   "about",
   "skills",
   "projects",
-  "education",
   "learning",
   "contact"
 ];
@@ -60,7 +58,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-primary selection:bg-accent/20 selection:text-accent font-sans">
+    <div className="min-h-screen bg-background text-primary selection:bg-indigo-500/30 selection:text-white font-sans antialiased">
       {/* Fixed Sidebar for Desktop */}
       <Sidebar activeSection={activeSection} onNavigate={handleNavigate} />
 
@@ -74,7 +72,6 @@ export default function App() {
           <About />
           <Skills />
           <Projects />
-          <Education />
           <Learning />
           <Contact />
         </div>
@@ -85,3 +82,4 @@ export default function App() {
     </div>
   );
 }
+

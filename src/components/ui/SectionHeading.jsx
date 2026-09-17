@@ -8,16 +8,16 @@ export default function SectionHeading({
   className = ""
 }) {
   return (
-    <div className={`mb-8 ${className}`}>
+    <div className={`mb-10 ${className}`}>
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
         <div>
           {label && (
-            <div className="flex items-center gap-2 mb-2 font-mono text-xs tracking-wider text-accent uppercase font-medium">
-              <span className="inline-block w-2 h-0.5 bg-accent"></span>
+            <div className="flex items-center gap-2 mb-2 font-mono text-xs tracking-wider text-muted uppercase font-medium">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
               {label}
             </div>
           )}
-          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-primary">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-primary">
             {title}
           </h2>
         </div>
@@ -31,3 +31,4 @@ export default function SectionHeading({
     </div>
   );
 }
+

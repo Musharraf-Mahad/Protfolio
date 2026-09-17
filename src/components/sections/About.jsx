@@ -1,107 +1,124 @@
 import React from "react";
 import { profile } from "../../data/profile";
 import SectionHeading from "../ui/SectionHeading";
-import TerminalCard from "../ui/TerminalCard";
-import { GraduationCap, Compass, Sparkles } from "lucide-react";
+import { Layers, Compass, Sparkles, CheckCircle2 } from "lucide-react";
 
 export default function About() {
   return (
     <section id="about" className="py-16 border-t border-border">
-      <SectionHeading label="01 / PROFILE" title="About Me" />
+      <SectionHeading
+        label="01 / BACKGROUND"
+        title="Engineering Approach & Philosophy"
+        description="Software Engineer driven by building scalable MERN stack architectures, autonomous AI workflows, and resilient systems."
+      />
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Left: Bio Narrative */}
         <div className="lg:col-span-7 space-y-4 text-secondary leading-relaxed text-sm sm:text-base">
           {profile.aboutParagraphs.map((para, idx) => (
-            <p key={idx}>{para}</p>
+            <p key={idx} className="text-secondary/90">
+              {para}
+            </p>
           ))}
 
-          {/* Compact Metadata Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-6">
-            <div className="p-3.5 rounded-lg bg-surface border border-border">
-              <div className="flex items-center gap-1.5 text-[10px] font-mono text-muted uppercase tracking-wider mb-1">
-                <GraduationCap size={13} className="text-accent" />
-                <span>Academic</span>
+          <p className="text-secondary/90">
+            My engineering work emphasizes <strong className="text-primary font-medium">clarity over complexity</strong>, end-to-end type safety, responsive performance with the MERN stack, and integrating intelligent LLM agent tools into real software workflows.
+          </p>
+
+          {/* Compact Highlights */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4">
+            <div className="p-4 rounded-xl bg-card border border-border">
+              <div className="flex items-center gap-1.5 text-[11px] font-mono text-muted uppercase tracking-wider mb-1">
+                <Layers size={14} className="text-accent-light" />
+                <span>Primary Stack</span>
               </div>
-              <div className="text-xs font-semibold text-primary truncate">
-                {profile.program}
+              <div className="text-sm font-semibold text-primary truncate">
+                MERN Stack
               </div>
-              <div className="text-[11px] text-secondary truncate">
-                {profile.university}
+              <div className="text-xs text-muted truncate mt-0.5">
+                MongoDB · Express · React · Node
               </div>
             </div>
 
-            <div className="p-3.5 rounded-lg bg-surface border border-border">
-              <div className="flex items-center gap-1.5 text-[10px] font-mono text-muted uppercase tracking-wider mb-1">
-                <Compass size={13} className="text-accent" />
-                <span>Primary Direction</span>
+            <div className="p-4 rounded-xl bg-card border border-border">
+              <div className="flex items-center gap-1.5 text-[11px] font-mono text-muted uppercase tracking-wider mb-1">
+                <Compass size={14} className="text-accent-light" />
+                <span>Focus Area</span>
               </div>
-              <div className="text-xs font-semibold text-primary truncate">
-                {profile.focusArea}
+              <div className="text-sm font-semibold text-primary truncate">
+                Full Stack + AI
               </div>
-              <div className="text-[11px] text-secondary">
-                Scalable Systems
+              <div className="text-xs text-muted mt-0.5">
+                Scalable Web & Systems
               </div>
             </div>
 
-            <div className="p-3.5 rounded-lg bg-surface border border-border">
-              <div className="flex items-center gap-1.5 text-[10px] font-mono text-muted uppercase tracking-wider mb-1">
-                <Sparkles size={13} className="text-accent" />
-                <span>Current Focus</span>
+            <div className="p-4 rounded-xl bg-card border border-border">
+              <div className="flex items-center gap-1.5 text-[11px] font-mono text-muted uppercase tracking-wider mb-1">
+                <Sparkles size={14} className="text-accent-light" />
+                <span>Active Research</span>
               </div>
-              <div className="text-xs font-semibold text-accent truncate">
-                {profile.currentFocus}
+              <div className="text-sm font-semibold text-primary truncate">
+                AI Agents & Tools
               </div>
-              <div className="text-[11px] text-secondary">
-                Tool Calling & Flow
+              <div className="text-xs text-muted mt-0.5">
+                Autonomous Workflows
               </div>
             </div>
           </div>
         </div>
 
-        {/* Right: Terminal Developer Info Card */}
+        {/* Right: Technical Highlights Card */}
         <div className="lg:col-span-5">
-          <TerminalCard
-            title="developer --info"
-            headerRight="profile.json"
-            className="text-xs"
-          >
-            <div className="text-accent font-semibold mb-2">
-              $ developer --info
+          <div className="rounded-xl bg-card border border-border p-6 space-y-4">
+            <div className="flex items-center justify-between pb-3 border-b border-border">
+              <span className="text-xs font-mono uppercase tracking-wider text-muted font-medium">
+                Engineering Principles
+              </span>
+              <span className="text-[11px] font-mono text-secondary">v2026</span>
             </div>
 
-            <div className="space-y-1.5 pt-1">
-              <div className="flex items-baseline justify-between border-b border-border/50 pb-1">
-                <span className="text-muted">Name</span>
-                <span className="text-primary font-medium">{profile.name}</span>
+            <div className="space-y-3.5 text-xs">
+              <div className="flex items-start gap-3">
+                <CheckCircle2 size={16} className="text-emerald-400 shrink-0 mt-0.5" />
+                <div>
+                  <span className="font-semibold text-primary">Production MERN Architecture:</span>
+                  <p className="text-secondary mt-0.5">
+                    Building resilient Express/Node backend microservices and databases combined with intuitive React client interfaces.
+                  </p>
+                </div>
               </div>
-              <div className="flex items-baseline justify-between border-b border-border/50 pb-1">
-                <span className="text-muted">Role</span>
-                <span className="text-accent font-medium">{profile.title}</span>
+
+              <div className="flex items-start gap-3">
+                <CheckCircle2 size={16} className="text-emerald-400 shrink-0 mt-0.5" />
+                <div>
+                  <span className="font-semibold text-primary">Autonomous <span className="text-accent-light">AI</span> Agent Workflows:</span>
+                  <p className="text-secondary mt-0.5">
+                    Designing structured function-calling pipelines, memory structures, and tool execution loops.
+                  </p>
+                </div>
               </div>
-              <div className="flex items-baseline justify-between border-b border-border/50 pb-1">
-                <span className="text-muted">University</span>
-                <span className="text-primary">{profile.university}</span>
-              </div>
-              <div className="flex items-baseline justify-between border-b border-border/50 pb-1">
-                <span className="text-muted">Program</span>
-                <span className="text-primary">{profile.program}</span>
-              </div>
-              <div className="flex items-baseline justify-between border-b border-border/50 pb-1">
-                <span className="text-muted">Focus</span>
-                <span className="text-accent">{profile.focusArea}</span>
-              </div>
-              <div className="flex items-baseline justify-between pt-0.5">
-                <span className="text-muted">Status</span>
-                <span className="text-accent-cyan flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent-cyan animate-pulse"></span>
-                  {profile.status}
-                </span>
+
+              <div className="flex items-start gap-3">
+                <CheckCircle2 size={16} className="text-emerald-400 shrink-0 mt-0.5" />
+                <div>
+                  <span className="font-semibold text-primary">Continuous Growth & Rigor:</span>
+                  <p className="text-secondary mt-0.5">
+                    Applying software engineering patterns, version control, and performance optimization at every stage.
+                  </p>
+                </div>
               </div>
             </div>
-          </TerminalCard>
+
+            <div className="pt-3 border-t border-border flex items-center justify-between text-xs text-muted font-mono">
+              <span>MERN + AI Systems</span>
+              <span className="text-primary font-medium">Ready to Build</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
+

@@ -4,11 +4,11 @@ import { socialLinks } from "../../data/socialLinks";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border mt-20 py-8 px-4 sm:px-8 text-xs text-muted">
+    <footer className="border-t border-border/80 mt-20 py-8 px-4 sm:px-8 text-xs text-muted">
       <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div>
-          <span className="font-semibold text-primary">{profile.name}</span>
-          <span className="mx-2 text-border">·</span>
+        <div className="flex items-center gap-2">
+          <span className="font-medium text-primary">{profile.name}</span>
+          <span className="text-border">·</span>
           <span>{profile.title}</span>
         </div>
 
@@ -19,7 +19,7 @@ export default function Footer() {
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-accent transition-colors"
+                className="text-secondary hover:text-primary transition-colors"
               >
                 {item.name}
               </a>
@@ -30,8 +30,9 @@ export default function Footer() {
           ))}
         </div>
 
-        <div>© 2026 {profile.name}. All rights reserved.</div>
+        <div>© 2026 {profile.name}</div>
       </div>
     </footer>
   );
 }
+

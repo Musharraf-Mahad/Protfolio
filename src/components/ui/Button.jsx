@@ -16,25 +16,25 @@ export default function Button({
   ...props
 }) {
   const baseStyles =
-    "inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 select-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background disabled:opacity-50 disabled:cursor-not-allowed";
+    "inline-flex items-center justify-center font-medium rounded-lg transition-all duration-150 select-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent/50 focus:ring-offset-2 focus:ring-offset-background disabled:opacity-50 disabled:cursor-not-allowed";
 
   const sizeStyles = {
     sm: "px-3 py-1.5 text-xs gap-1.5",
-    md: "px-4 py-2 text-sm gap-2",
-    lg: "px-5 py-2.5 text-base gap-2.5"
+    md: "px-4 py-2 text-xs sm:text-sm gap-2",
+    lg: "px-5 py-2.5 text-sm sm:text-base gap-2.5"
   };
 
   const variantStyles = {
     primary:
-      "bg-accent hover:bg-accent-light text-background font-semibold shadow-glow-sm hover:shadow-glow-md",
+      "bg-primary hover:bg-white text-background font-semibold shadow-sm hover:shadow",
     secondary:
-      "bg-surface hover:bg-card border border-border hover:border-accent/40 text-primary hover:text-white",
+      "bg-surface hover:bg-card border border-border hover:border-border-light text-primary",
+    accent:
+      "bg-accent hover:bg-accent-hover text-white font-semibold shadow-sm",
     outline:
-      "bg-transparent hover:bg-surface border border-border hover:border-accent/50 text-secondary hover:text-primary",
+      "bg-transparent hover:bg-surface border border-border hover:border-border-light text-secondary hover:text-primary",
     ghost:
-      "bg-transparent hover:bg-surface/60 text-secondary hover:text-primary",
-    terminal:
-      "bg-card/90 hover:bg-card border border-border hover:border-accent text-accent font-mono text-xs"
+      "bg-transparent hover:bg-surface text-secondary hover:text-primary"
   };
 
   const combinedClass = `${baseStyles} ${sizeStyles[size] || sizeStyles.md} ${
@@ -51,18 +51,19 @@ export default function Button({
         className={combinedClass}
         {...props}
       >
-        {Icon && iconPosition === "left" && <Icon size={size === "sm" ? 14 : size === "lg" ? 18 : 16} />}
+        {Icon && iconPosition === "left" && <Icon size={size === "sm" ? 13 : size === "lg" ? 17 : 15} />}
         <span>{children}</span>
-        {Icon && iconPosition === "right" && <Icon size={size === "sm" ? 14 : size === "lg" ? 18 : 16} />}
+        {Icon && iconPosition === "right" && <Icon size={size === "sm" ? 13 : size === "lg" ? 17 : 15} />}
       </a>
     );
   }
 
   return (
     <button type={type} onClick={onClick} className={combinedClass} {...props}>
-      {Icon && iconPosition === "left" && <Icon size={size === "sm" ? 14 : size === "lg" ? 18 : 16} />}
+      {Icon && iconPosition === "left" && <Icon size={size === "sm" ? 13 : size === "lg" ? 17 : 15} />}
       <span>{children}</span>
-      {Icon && iconPosition === "right" && <Icon size={size === "sm" ? 14 : size === "lg" ? 18 : 16} />}
+      {Icon && iconPosition === "right" && <Icon size={size === "sm" ? 13 : size === "lg" ? 17 : 15} />}
     </button>
   );
 }
+

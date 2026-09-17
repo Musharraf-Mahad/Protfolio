@@ -6,108 +6,93 @@ import {
   Code,
   Server,
   Database,
-  Cpu,
-  ArrowRight
+  Cpu
 } from "lucide-react";
 
-const roadmapStages = ["LEARN", "BUILD", "EXPERIMENT", "IMPROVE"];
 
 const learningItems = [
   {
     id: "ai-agents",
-    title: "AI Agents",
-    status: "ACTIVE",
-    desc: "Autonomous reasoning loops, tool-calling pipelines, structured memory architectures.",
-    icon: Sparkles,
-    isPrimary: true
+    title: "AI Agents & Autonomous Pipelines",
+    titleHighlight: true,
+    status: "Active Lab",
+    desc: "Autonomous reasoning loops, multi-agent frameworks, function calling, tool execution pipelines, and structured memory architectures.",
+    icon: Sparkles
   },
   {
-    id: "full-stack",
-    title: "Full Stack Development",
-    status: "ACTIVE",
-    desc: "End-to-end modern architecture, reactive RESTful client interfaces, robust relational/document backends.",
-    icon: Layers,
-    isPrimary: true
+    id: "mern-stack",
+    title: "MERN Stack Production Systems",
+    status: "Specialization",
+    desc: "End-to-end architectures, reactive state modeling with React 19, RESTful services with Express, and robust data persistence in MongoDB.",
+    icon: Layers
+  },
+  {
+    id: "ai-applications",
+    title: "AI-Powered Software Applications",
+    titleHighlight: true,
+    status: "Focus Area",
+    desc: "Connecting large language models with deterministic software logic, context retrieval, and human-in-the-loop workflows.",
+    icon: Cpu
   },
   {
     id: "react",
-    title: "React",
-    status: "CORE",
-    desc: "Hooks, state modeling, reusable component architecture, and modern client performance.",
+    title: "Modern React Ecosystem",
+    status: "Core Stack",
+    desc: "Custom hooks, state modeling, reusable component architecture, and modern client performance optimization.",
     icon: Code
   },
   {
     id: "nodejs",
-    title: "Node.js",
-    status: "DEV",
-    desc: "Asynchronous event loops, RESTful services, serverless execution, and API endpoints.",
+    title: "Node.js & Express Backends",
+    status: "Core Stack",
+    desc: "Asynchronous I/O, RESTful API design, JWT authentication flows, middleware architecture, and server execution.",
     icon: Server
   },
   {
-    id: "mongodb",
-    title: "MongoDB",
-    status: "STORE",
-    desc: "Document modeling, indexing, schema design, and seamless integration with MERN stacks.",
+    id: "databases",
+    title: "MongoDB & Database Modeling",
+    status: "Data Layer",
+    desc: "Mongoose schema design, document indexing, aggregation pipelines, and transaction consistency.",
     icon: Database
-  },
-  {
-    id: "ai-applications",
-    title: "AI-Powered Applications",
-    status: "FOCUS",
-    desc: "Connecting LLMs with real software logic, semantic search, and human-in-the-loop workflows.",
-    icon: Cpu,
-    isPrimary: true
   }
 ];
+
 
 export default function Learning() {
   return (
     <section id="learning" className="py-16 border-t border-border">
       <SectionHeading
-        label="05 / LEARNING"
-        title="Currently Building & Learning"
-        description="Active areas of technical expansion, exploration, and experimental software engineering."
+        label="05 / ACTIVE LABS"
+        title="Engineering Focus & Research"
+        description="Active areas of technical expansion, exploration, and architectural experimentation."
       />
-
-      {/* Visual Roadmap Flow */}
-      <div className="mb-8 p-4 rounded-xl bg-card border border-border flex items-center justify-center overflow-x-auto">
-        <div className="flex items-center gap-2 sm:gap-4 font-mono text-xs text-secondary shrink-0">
-          {roadmapStages.map((stage, idx) => (
-            <React.Fragment key={stage}>
-              <span className="px-3 py-1 rounded bg-surface border border-border font-bold text-accent">
-                {stage}
-              </span>
-              {idx < roadmapStages.length - 1 && (
-                <ArrowRight size={14} className="text-muted" />
-              )}
-            </React.Fragment>
-          ))}
-        </div>
-      </div>
 
       {/* Learning Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {learningItems.map((item) => (
           <div
             key={item.id}
-            className={`p-5 rounded-xl bg-card border transition-all duration-200 hover:-translate-y-0.5 flex flex-col justify-between ${
-              item.isPrimary
-                ? "border-accent/50 shadow-glow-sm"
-                : "border-border hover:border-accent/30"
-            }`}
+            className="p-5 rounded-xl bg-card border border-border hover:border-border-light transition-colors flex flex-col justify-between space-y-3"
           >
             <div>
               <div className="flex items-center justify-between mb-3">
-                <div className="p-2 rounded-lg bg-surface border border-border text-accent">
-                  <item.icon size={18} />
+                <div className="p-2 rounded-lg bg-surface border border-border text-primary">
+                  <item.icon size={16} />
                 </div>
-                <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-surface text-secondary border border-border">
+                <span className="px-2 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider bg-surface text-secondary border border-border font-medium">
                   {item.status}
                 </span>
               </div>
-              <h3 className="text-sm font-bold text-primary mb-1.5">
-                {item.title}
+              <h3 className="text-xs font-semibold text-primary mb-1.5">
+                {item.titleHighlight ? (
+                  <>
+                    <span className="text-accent-light">AI</span> {item.title.replace(/^AI\s*/, "")}
+                  </>
+                ) : (
+                  item.title
+                )}
               </h3>
+
               <p className="text-xs text-secondary leading-relaxed">
                 {item.desc}
               </p>
@@ -116,16 +101,17 @@ export default function Learning() {
         ))}
       </div>
 
-      {/* Subtle Bottom Card */}
-      <div className="mt-4 p-4 rounded-xl bg-surface border border-border flex items-center justify-between">
-        <div className="flex items-center gap-3 text-xs text-secondary font-mono">
-          <span className="w-2 h-2 rounded-full bg-accent"></span>
-          <span>Software Engineering Discipline</span>
+      {/* Engineering Discipline Footer Banner */}
+      <div className="mt-6 p-4 rounded-xl bg-surface border border-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+        <div className="flex items-center gap-2.5 text-xs text-primary font-medium">
+          <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
+          <span>Engineering Discipline</span>
         </div>
         <span className="text-[11px] font-mono text-muted">
-          Writing clean, maintainable, testable code with Git version control
+          Committed to clean code, testability, Git workflow rigor, and continuous iteration.
         </span>
       </div>
     </section>
   );
 }
+
